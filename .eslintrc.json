@@ -1,6 +1,3 @@
 {
-  "extends": [
-    // "next/core-web-vitals",
-    "eslint-config-code9"
-  ]
+  "extends": "eslint-config-code9"
 }
