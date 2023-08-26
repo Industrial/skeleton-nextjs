@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev",
+    "lint": "pnpm lint:tsc && pnpm lint:eslint",
+    "lint:eslint": "eslint --fix --cache .",
+    "lint:tsc": "tsc -p . --noEmit",
+    "pre-commit": "lint-staged",
+    "start": "next start"
+  },
+  "lint-staged": {
+    "*.{js,mjs,cjs,jsx,ts,tsx,json}": "pnpm lint"
   },
   "dependencies": {
     "@types/node": "20.5.6",
@@ -21,6 +27,7 @@
   },
   "devDependencies": {
     "eslint-config-code9": "^0.3.0",
-    "eslint-plugin-prettier": "5.0.0"
+    "eslint-plugin-prettier": "5.0.0",
+    "lint-staged": "^14.0.1"
   }
 }
